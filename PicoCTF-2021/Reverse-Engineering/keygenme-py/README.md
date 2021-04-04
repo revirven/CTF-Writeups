@@ -1,5 +1,27 @@
 # keygenme-py
-Đây là 1 challenge dạng menu. Tại mục (c) yêu cầu mã kích hoạt bản full của chương trình (chính là flag), bao gồm 3 phần:
+Đây là 1 challenge dạng menu. Tại mục (c) yêu cầu mã kích hoạt bản full của chương trình (cũng chính là flag)
+```bash
+===============================================
+Welcome to the Arcane Calculator, SCHOFIELD!
+
+This is the trial version of Arcane Calculator.
+The full version may be purchased in person near
+the galactic center of the Milky Way galaxy. 
+Available while supplies last!
+=====================================================
+
+
+___Arcane Calculator___
+
+Menu:
+(a) Estimate Astral Projection Mana Burn
+(b) [LOCKED] Estimate Astral Slingshot Approach Vector
+(c) Enter License Key
+(d) Exit Arcane Calculator
+What would you like to do, SCHOFIELD (a/b/c/d)? 
+```
+## Source code
+Flag gồm 3 phần:
 ```python
 key_part_static1_trial = "picoCTF{1n_7h3_|<3y_of_"
 key_part_dynamic1_trial = "xxxxxxxx"
@@ -67,7 +89,7 @@ def check_key(key, username_trial):
 
         return True
 ```
-`username_trial`:
+với `username_trial`:
 ```python
 username_trial = "SCHOFIELD"
 ```
