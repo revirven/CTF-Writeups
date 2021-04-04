@@ -21,7 +21,7 @@ Menu:
 What would you like to do, SCHOFIELD (a/b/c/d)? 
 ```
 ## Source code
-Flag gồm 3 phần:
+Key gồm 3 phần:
 ```python
 key_part_static1_trial = "picoCTF{1n_7h3_|<3y_of_"
 key_part_dynamic1_trial = "xxxxxxxx"
@@ -124,7 +124,7 @@ picoCTF{1n_7h3_|<3y_of_e584b363}
 
 ```
 ## Bonus
-Khi nhập mã kích hoạt vào, chương trình sẽ tạo 1 file keygenme.py là bản full của chương trình và mục (b) sẽ được mở khoá
+Khi nhập key vào, chương trình sẽ tạo 1 file keygenme.py là bản full của chương trình và mục (b) sẽ được mở khoá
 ```bash
 ===============================================
 Welcome to the Arcane Calculator, SCHOFIELD!
