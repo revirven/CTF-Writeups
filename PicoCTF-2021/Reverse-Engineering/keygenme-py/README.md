@@ -123,3 +123,46 @@ revirven@ubuntu:~/Desktop/GitHub/CTF-Writeups/PicoCTF-2021/Reverse-Engineering/k
 picoCTF{1n_7h3_|<3y_of_e584b363}
 
 ```
+## Bonus
+Khi nhập mã kích hoạt vào, chương trình sẽ tạo 1 file keygenme.py là bản full của chương trình và mục (b) sẽ được mở khoá
+```bash
+===============================================
+Welcome to the Arcane Calculator, SCHOFIELD!
+
+This is the trial version of Arcane Calculator.
+The full version may be purchased in person near
+the galactic center of the Milky Way galaxy. 
+Available while supplies last!
+=====================================================
+
+
+___Arcane Calculator___
+
+Menu:
+(a) Estimate Astral Projection Mana Burn
+(b) [LOCKED] Estimate Astral Slingshot Approach Vector
+(c) Enter License Key
+(d) Exit Arcane Calculator
+What would you like to do, SCHOFIELD (a/b/c/d)? c
+
+Enter your license key: picoCTF{1n_7h3_|<3y_of_e584b363}
+
+Full version written to 'keygenme.py'.
+
+Exiting trial version...
+
+===================================================
+
+Welcome to the Arcane Calculator, tron!
+
+===================================================
+
+
+___Arcane Calculator___
+
+Menu:
+(a) Estimate Astral Projection Mana Burn
+(b) Estimate Astral Slingshot Approach Vector
+(c) Exit Arcane Calculator
+What would you like to do, tron (a/b/c)? 
+```
