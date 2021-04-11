@@ -1,6 +1,6 @@
 # CTF-Writeups
 Yea, i do CTF too.
 
-Đây là các challenges mà tôi giải được trong 1 số cuộc thi đã tham gia. Have fun reading them.
+These are the challenges that i solved in some competitions. Have fun reading them (They aren't written in English though...)
 ## Table of contents
 - [PicoCTF 2021](PicoCTF-2021)
