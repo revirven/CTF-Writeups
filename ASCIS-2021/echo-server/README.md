@@ -85,7 +85,7 @@ To simplify it, dynamic-linking binaries don't contain all the modules required 
 - When a function is first called, the dynamic linker performs a lookup in the shared library, and stores the address of the resolved function into the GOT
 - The PLT will then, jump to the stored address in the GOT and invoke the function.
 
-With this, we can call any function we want via PLT since the address of PLT and GOT aren't affected by ASLR, provided that the function has been called once.
+With this, we can call any function we want via PLT, provided that PIE is disabled (or you could, somehow, leak the binary base address) and the function has been called once.
 
 ## Finding the shared library of the remote machine using function addresses
 Shared library functions are loaded into the memory at an offset to a base position (this is called relative address) but the distance between 2 functions in the memory remains unchanged, so we can use the addresses of any 2 functions to find the correct libc version.
@@ -296,7 +296,7 @@ $ cat flag
 ASCIS{old_school_challenge}
 ```
 ## Several things for me to remember (you guys can skip this)
-- The addresses of PLT and GOT entries are static, only the addresses load from the shared library are dynamic
+- Since PIE has been disabled, the addresses of PLT and GOT entries are static, only the addresses load from the shared library are dynamic
 - You can debug your payload with GDB by:
     - Use `raw_input()` after `process()` - This will make the exploit script wait for inputs
     - At another terminal, run `gdb -p pid` (`pid` = process of the program - specified by `process()`), set breakpoints (usually after input function), then continue
