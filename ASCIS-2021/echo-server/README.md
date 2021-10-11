@@ -1,6 +1,6 @@
 # echo server - 100 pts
 
-I couldn't solve this challenge at the time of the competition because i have problems debugging my payload (gdb.attach sucks anyway). So after doing some research, i have managed to get my payload to work and got the flag. This is just for remembering how to do certain things in the process of debugging and testing.
+I couldn't solve this challenge at the time of the competition because i had problems debugging my payload (gdb.attach sucks anyway). So after doing some research, i have managed to get my payload to work and got the flag. This is just for remembering how to do certain things in the process of debugging and testing.
 
 ## Get started
 Let's start off by looking into the binary's properties:
