@@ -102,7 +102,7 @@ do {
     } while (pcVar1 == (char *)0x0);
 ```
 
-We need to find the address of `puts.plt`, `puts.got` and `gets.got` at runtime. Pwntools provides a great module for this:
+We need to find the address of `puts.plt`, `puts.got` and `gets.got`. Pwntools provides a great module for this:
 ```python
 puts_plt = p64(elf.plt['puts'])
 puts_got = p64(elf.got['puts'])
