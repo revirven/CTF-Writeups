@@ -20,7 +20,7 @@ echoserver_2aa0a5dae5b5c2954ea6917acd01f49b: ELF 64-bit LSB executable, x86-64, 
     RWX:      Has RWX segments
 ```
 
-The binary is 64-bit ELF and most of the protection mechanisms have been disable so we can do plenty of things here. Although NX has been disabled, ASLR will definitely be on at the remote machine so the stack is still a useless place without a leak. We can instead, write to .bss section and execute shellcode from there. But for the sake of learning, i'll be using ret2libc attack technique in this writeup.
+The binary is 64-bit ELF and most of the protection mechanisms have been disabled so we can do plenty of things here. Although NX has been disabled, ASLR will definitely be on at the remote machine so the stack is still a useless place without a leak. We can instead, write to .bss section and execute shellcode from there. But for the sake of learning, i'll be using ret2libc attack technique in this writeup.
 
 The program seems to just read user's inputs and output what has been entered:
 ```bash
@@ -48,7 +48,7 @@ void entry(undefined8 param_1,undefined8 param_2,undefined8 param_3)
 }
 ```
 
-Function `FUN_004011ae` is used as the first parameter of `__libc_star_main` call, so we know it's the `main` function:
+Function `FUN_004011ae` is used as the first parameter of `__libc_start_main` call, so we know it's the `main` function:
 ```c
 undefined8 FUN_004011ae(void)
 {
