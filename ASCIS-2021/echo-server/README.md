@@ -128,11 +128,11 @@ Since 64-bit binaries use registers to store parameters for function calls, we w
 0x00000000004012cb: pop rdi; ret;
 ```
 
-Or the **ROP** module of pwntools
+Or the **ROP** module of pwntools:
 ```python
 pop_rdi = p64((rop.find_gadget(['pop rdi', 'ret']))[0])
 ```
-Lastly, we will need to jump back to `main` function to inject our 2nd payload which will be specify later
+Lastly, we will need to jump back to `main` function to inject our 2nd payload which will be specified later.
 ```python
 main = p64(0x004011ae) # The address of main function shown in Ghidra
 ```
