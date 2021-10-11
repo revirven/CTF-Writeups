@@ -88,7 +88,7 @@ To simplify it, dynamic-linking binaries don't contain all the modules required 
 With this, we can call any function we want via PLT, provided that PIE is disabled (or you could, somehow, leak the binary base address) and the function has been called once.
 
 ## Finding the libc version  of the remote machine using function addresses
-Shared library functions are loaded into the memory at an offset to a base address (this is called relative address) but the distance between 2 functions in the memory remains unchanged, so we can use the addresses of any 2 functions to find the correct libc version.
+Shared library functions are loaded into the memory at offsets to a base address (this is called relative address) but the distance between any 2 functions in the memory remains unchanged. We can take advantage of this to find the correct libc version.
 
 This site performs looking up libc version based on function addresses: https://libc.blukat.me
 
@@ -113,7 +113,7 @@ gets_got = p64(elf.got['gets'])
 - `puts_got`: Address of function `puts` in libc
 - `gets_got`: Address of function `gets` in libc
 
-Basically, what we're trying to do is to get `puts` to print out the addresses of `puts` and `gets` in the shared library.
+Basically, what we're trying to do is to get `puts` to print out the address of `puts` and `gets` in the shared library.
 
 Since 64-bit binaries use registers to store parameters for function calls, we will also need a `[pop rdi, ret]` gadget to pop the given addresses into RDI and return to our `puts` call. We can use **Ropper**:
 ```bash
