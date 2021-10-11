@@ -80,7 +80,7 @@ To do that, we will need to leak out the addresses of certain libc functions on 
 ## PLT, GOT and Relocation proccess
 The method above involves the GOT and the PLT as well as the process of relocation. Detailed of which can be found [here](https://systemoverlord.com/2017/03/19/got-and-plt-for-pwning.html) and [here](https://www.linkedin.com/pulse/elf-linux-executable-plt-got-tables-mohammad-alhyari)
 
-To simplify it, dynamic-linking binaries don't contain all the modules required for the program. Instead, those modules will be linked from a shared library and loaded into the binary at runtime using a linker. The Procedure Linkage Table (PLT) and Global Offset Table (GOT) are needed for this operation:
+To simplify it, dynamically-linked binaries don't contain all the modules required for the program. Instead, those modules will be linked from a shared library and loaded into the binary at runtime using a linker. The Procedure Linkage Table (PLT) and Global Offset Table (GOT) are needed for this operation:
 - The PLT stores the symbols that need to be resolved by the dynamic linker. They are pointers to different entries in the GOT
 - When a function is first called, the dynamic linker performs a lookup in the shared library, and stores the address of the resolved function into the GOT
 - The PLT will then, jump to the stored address in the GOT and invoke the function.
@@ -109,7 +109,7 @@ puts_got = p64(elf.got['puts'])
 gets_got = p64(elf.got['gets'])
 # p64 is for packing the integers into little endian format
 ```
-- `puts_plt`: For short, to call function `puts`
+- `puts_plt`: In short, to call function `puts`
 - `puts_got`: Address of function `puts` in libc
 - `gets_got`: Address of function `gets` in libc
 
