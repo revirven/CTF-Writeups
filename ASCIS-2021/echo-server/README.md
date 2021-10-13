@@ -48,7 +48,7 @@ void entry(undefined8 param_1,undefined8 param_2,undefined8 param_3)
 }
 ```
 
-Function `FUN_004011ae` is used as the first parameter of `__libc_start_main` call, so we know it's the `main` function:
+Function `FUN_004011ae` is used as the first parameter of `__libc_start_main()` call, so we know it's the `main` function:
 ```c
 undefined8 FUN_004011ae(void)
 {
