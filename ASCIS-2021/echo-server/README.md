@@ -22,7 +22,7 @@ echoserver_2aa0a5dae5b5c2954ea6917acd01f49b: ELF 64-bit LSB executable, x86-64, 
 
 The binary is 64-bit ELF and most of the protection mechanisms have been disabled so we can do plenty of things here. Although NX has been disabled, ASLR will definitely be on at the remote machine so the stack is still a useless place without a leak. We can instead, write to .bss section and execute shellcode from there. But for the sake of learning, i'll be using ret2libc attack technique in this writeup.
 
-The program seems to just read user's inputs and output what has been entered:
+The program seems to just read user's inputs and echo back what has been entered:
 ```bash
 ┌──(revirven㉿kali)-[~/Desktop/CTF/ASCIS-2021/echo-server]
 └─$ ./echoserver_2aa0a5dae5b5c2954ea6917acd01f49b
