@@ -157,7 +157,7 @@ ropchain1 += pop_rdi + gets_got + puts_plt + main
 ```
 
 ## Building the 2nd ropchain (to spawn shell)
-We now have the correct libc version to work with, let's specified the library in our exploit script:
+We now have the correct libc version to work with, let's specify the library in our exploit script:
 ```python
 libc = ELF("./libc6_2.31-0ubuntu9_amd64.so")
 ```
