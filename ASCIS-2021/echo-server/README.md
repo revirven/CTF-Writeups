@@ -87,7 +87,7 @@ To simplify it, dynamically-linked binaries don't contain all the modules requir
 
 With this, we can call any function we want via PLT, provided that PIE is disabled (or you could, somehow, leak the binary base address) and the function has been called once.
 
-## Finding the libc version  of the remote machine using function addresses
+## Finding the libc version on the remote machine using function addresses
 Shared library functions are loaded into the memory at offsets to a base address (this is called relative address) but the distance between any 2 functions in the memory remains unchanged. We can take advantage of this to find the correct libc version.
 
 This site performs looking up libc version based on function addresses: https://libc.blukat.me
