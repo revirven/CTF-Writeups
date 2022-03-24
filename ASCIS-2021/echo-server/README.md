@@ -68,7 +68,7 @@ undefined8 FUN_004011ae(void)
     return 0;
 }
 ```
-We can overwrite the return address of the function, but the payload must contain the string "QUIT" for the program to break out of the while loop. But where should we return to ?
+We can overwrite the return address of the function, the payload must contain the string "QUIT" for the program to break out of the while loop. But where should we return to ?
 
 ## ret2libc attack
 ret2libc attack uses functions in libc to spawn a shell (specifically `system()` or `execve()`,...).
