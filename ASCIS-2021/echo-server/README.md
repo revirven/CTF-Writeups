@@ -2,7 +2,7 @@
 
 I couldn't solve this challenge at the time of the competition because i had problems debugging my payload (gdb.attach sucks anyway). So after doing some research, i have managed to get my payload to work and got the flag. This is just for remembering how to do certain things in the process of debugging and testing.
 
-## Get started
+## Getting started
 Let's start off by looking into the binary's properties:
 ```bash
 ┌──(revirven㉿kali)-[~/Desktop/CTF/ASCIS-2021/echo-server]
