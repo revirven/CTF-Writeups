@@ -77,7 +77,7 @@ In order to carry out ret2libc attack, we must know the libc version of the remo
 
 To do that, we will need to leak out the addresses of certain libc functions on the remote machine and base on those to find the correct libc version. Since we control the return address of `main`, we can instruct the program to call some output functions such as `puts`, `printf`,... to print out the address of themselves or other functions.
 
-## PLT, GOT and Relocation proccess
+## PLT, GOT and Relocation process
 The method above involves the GOT and the PLT as well as the process of relocation. Detailed of which can be found [here](https://systemoverlord.com/2017/03/19/got-and-plt-for-pwning.html) and [here](https://www.linkedin.com/pulse/elf-linux-executable-plt-got-tables-mohammad-alhyari)
 
 To simplify it, dynamically-linked binaries don't contain all the modules required for the program. Instead, those modules will be linked from a shared library and loaded into the binary at runtime using a linker. The Procedure Linkage Table (PLT) and Global Offset Table (GOT) are needed for this operation:
